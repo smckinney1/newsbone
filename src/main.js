@@ -27,7 +27,7 @@ require.config({
 });
 
 require([
-	'views/first-view'
-], function (FirstView) {
-	new FirstView();		//starts the FirstView
+	'views/nav-view'
+], function (NavView) {
+	new NavView();		//starts the FirstView
 });

@@ -6,7 +6,7 @@ define([
 	'text!templates/first-template.html'
 ], function ($, _, Backbone, FirstModel, firstTemplate) {
 	'use strict';
-	console.log('First Template: ', firstTemplate);
+	
 	var FirstView = Backbone.View.extend({
 
 		el: '#hello-test',

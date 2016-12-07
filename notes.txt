@@ -1,2 +1,4 @@
 Google Require.js fallbacks
 Serve folder in node express.js
+
+--flesh out all views again
