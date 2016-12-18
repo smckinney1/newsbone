@@ -23,10 +23,13 @@ define([
 				this.model.set({searchTopic: $(e.target).val()});
 			},
 			'change #from-date': function (e) {
-				this.model.setDateFrom($(e.target).val());												//function exists within the model
+				this.model.setDateFrom($(e.target).val());												//function exists within the model; business logic done in model
 			},
 			'change #to-date': function (e) {
 				this.model.set({dateTo: $(e.target).val()});
+			},
+			'change #order-by': function (e) {
+				this.model.set({orderBy: $(e.target).val()});
 			}
 
 		},
@@ -34,15 +37,27 @@ define([
 		render: function () {
 
 			this.$el.append(this.template({}));
-			this.listenTo(this.model, 'change', function () {											//UI needs to be updated with the model
 
+			this.listenTo(this.model, 'change:searchTopic', function () {								//UI needs to be updated from the model
 				var searchValue = this.model.get('searchTopic');
-				var dateFromValue = this.model.get('dateFrom');
-				var dateToValue = this.model.get('dateTo');
 				$('#search-area input').val(searchValue);
+			});
+
+			this.listenTo(this.model, 'change:dateFrom', function () {
+				var dateFromValue = this.model.get('dateFrom');
 				$('#from-date').val(dateFromValue);
+			});
+
+			this.listenTo(this.model, 'change:dateTo', function () {
+				var dateToValue = this.model.get('dateTo');
 				$('#to-date').val(dateToValue);
 			});
+
+			this.listenTo(this.model, 'change:orderBy', function () {
+				var orderValue = this.model.get('orderBy');
+				$('#order-by').val(orderValue);
+			});
+
 			return this;
 		}
 
@@ -51,3 +66,6 @@ define([
 	return FormView;
 
 });
+
+
+
