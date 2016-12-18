@@ -1,10 +1,9 @@
 define([
-	'jquery',
+	'jquery',	//may not need to require this for this view
 	'underscore',
 	'backbone',
-	'models/first-model',
 	'text!templates/nav-template.html'
-], function ($, _, Backbone, FirstModel, firstTemplate, navTemplate) {
+], function ($, _, Backbone, navTemplate) {
 	'use strict';
 	
 	var NavView = Backbone.View.extend({
@@ -22,9 +21,8 @@ define([
 		}*/
 
 		render: function () {
-			//console.log('rendering');
-			//console.log('this.template: ', this.template);
-			//this.$el.append(this.template({}));
+
+			this.$el.append(this.template({}));
 			return this;
 		}
 

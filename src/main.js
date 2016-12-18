@@ -4,6 +4,17 @@ require.config({
 
 	baseURL: '/',
 
+	shim: {
+		'backbone': {
+			deps: ['underscore', 'jquery']
+			//exports: 'Backbone'
+		},
+		'bootstrap': {
+			deps: ['jquery']
+			//exports: 'Bootstrap'
+		}
+	},
+
 	paths: {
 		jquery: [
 			'//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min',
@@ -19,7 +30,7 @@ require.config({
 		],
 		bootstrap: [
 			'//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min',
-			'/scripts/bootstrap/dist/js/bootstrap.min'
+			'/scripts/bootstrap/dist/js/bootstrap'
 		],
 		text: '//cdnjs.cloudflare.com/ajax/libs/require-text/2.0.12/text.min'
 	}
@@ -27,7 +38,10 @@ require.config({
 });
 
 require([
-	'views/nav-view'
-], function (NavView) {
+	'views/nav-view',
+	'views/form-view',
+	'backbone'
+], function (NavView, FormView, blah) {
 	new NavView();		//starts the FirstView
+	new FormView();
 });

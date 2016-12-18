@@ -31,3 +31,84 @@ nav a, nav a:hover, nav a:visited {
 ul li:nth-child(2) {
     padding-left: 20px;
 }
+
+/****** ICON BEHAVIOR *******/
+
+.glyphicon-home, .nav-heart {
+	font-size: 40px;
+}
+
+.glyphicon-home:hover, .nav-heart:hover {
+	color: #ffff9a;
+}
+
+.heart-favorite,
+.glyphicon-remove {
+	float: right;
+	font-size: 20px;
+}
+
+.heart-favorite:hover {
+	color: #FFB6C1;
+}
+
+.glyphicon-remove:hover {
+	color: #F00;
+}
+
+/****** CONTENT *******/
+
+.newsboys {
+	font-family: 'BioRhyme', serif;
+	font-size: 9rem;
+	font-weight: 800;
+	color: #fff;
+	text-shadow: 5px 5px 25px #000;
+}
+
+label {
+	color: #fff;
+}
+
+.container {
+	background: rgba(41,41,41,0.55);
+	padding: 10px;
+	border-radius: 10px;
+}
+
+.container, .news-results {
+	margin-top: 15px;
+}
+
+#search-area {
+	position: relative;
+}
+
+#search-area input {
+	text-indent: 30px;
+}
+
+#search-area .glyphicon-search {
+	position: absolute;
+	top: 17px;
+	left: 15px;
+	font-size: 15px;
+}
+
+#search-area .form-control {
+	border-radius: 20px;
+}
+
+.news-results {
+  padding-left: 0;
+  margin-bottom: 20px;
+}
+
+.news-results div, .favorites div {
+  position: relative;
+  display: block;
+  padding: 10px 15px;
+  margin-bottom: -1px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+}

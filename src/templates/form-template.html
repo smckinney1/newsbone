@@ -1,0 +1,29 @@
+<form>
+	<div class="form-group search" id="search-area">
+		<span class="glyphicon glyphicon-search"></span>
+		<input class="form-control input-lg" type="textbox" placeholder="Search topic" autofocus>
+	</div>
+
+		<a class="btn btn-primary" role="button" data-toggle="collapse" href="#collapseOptions" aria-expanded="false" aria-controls="collapseOptions">
+			 Advanced Options
+	</a>
+	<div class="collapse" id="collapseOptions">
+		<br>
+		<span class="dates form-inline">
+		    <label for="from-date">Date from: </label>
+			<input id="from-date" class="form-control" type="date">
+			<label for="to-date">Date to: </label>
+			<input id="to-date" class="form-control" type="date">
+		</span>
+
+		<span class="order form-inline">
+			<label for="order-by">Order by: </label>
+			<select class="form-control" id="order-by">
+				<option class="drop-down" value="relevance">Relevance</option>
+				<option class="drop-down" value="newest">Newest</option>
+				<option class="drop-down" value="oldest">Oldest</option>
+			</select>
+		</span>
+
+	</div>
+</form>

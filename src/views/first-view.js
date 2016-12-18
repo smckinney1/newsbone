@@ -1,10 +1,10 @@
 define([
-	'jquery',
 	'underscore',
+	'jquery',
 	'backbone',
 	'models/first-model',
 	'text!templates/first-template.html'
-], function ($, _, Backbone, FirstModel, firstTemplate) {
+], function (_, $, Backbone, FirstModel, firstTemplate) {
 	'use strict';
 	
 	var FirstView = Backbone.View.extend({
