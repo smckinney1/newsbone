@@ -23,13 +23,10 @@ define([
 				this.model.set({searchTopic: $(e.target).val()});
 			},
 			'change #from-date': function (e) {
-				var formattedDate = new Date($(e.target).val() + ' 00:00:00 EST');			//format date field input to JS Date so that we can add 7 days
-				formattedDate.setDate(formattedDate.getDate() + 7);							//to be used in the "to" date default
-				this.model.set({fromDate: $(e.target).val()});
-				this.model.set({toDate: formattedDate.toJSON().slice(0,10)});				//format the "to" date back to correct format for API call
+				this.model.setDateFrom($(e.target).val());												//function exists within the model
 			},
 			'change #to-date': function (e) {
-				this.model.set({toDate: $(e.target).val()});
+				this.model.set({dateTo: $(e.target).val()});
 			}
 
 		},
@@ -37,13 +34,14 @@ define([
 		render: function () {
 
 			this.$el.append(this.template({}));
-			this.listenTo(this.model, 'change', function () {
+			this.listenTo(this.model, 'change', function () {											//UI needs to be updated with the model
+
 				var searchValue = this.model.get('searchTopic');
-				var fromDateValue = this.model.get('fromDate');
-				var toDateValue = this.model.get('toDate');
+				var dateFromValue = this.model.get('dateFrom');
+				var dateToValue = this.model.get('dateTo');
 				$('#search-area input').val(searchValue);
-				$('#from-date').val(fromDateValue);
-				$('#to-date').val(toDateValue);
+				$('#from-date').val(dateFromValue);
+				$('#to-date').val(dateToValue);
 			});
 			return this;
 		}
