@@ -40,8 +40,10 @@ require.config({
 require([
 	'views/nav-view',
 	'views/form-view',
+	'views/results-view',
 	'backbone'
-], function (NavView, FormView, blah) {
-	new NavView();		//starts the FirstView
+], function (NavView, FormView, ResultsView, Backbone) {
+	new NavView();	
 	new FormView();
+	new ResultsView();
 });

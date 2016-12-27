@@ -3,7 +3,7 @@ define([
 	'bootstrap',
 	'models/form-model',
 	'text!templates/form-template.html'
-], function (Backbone, bootstrap, FormModel, formTemplate) {
+], function (Backbone, bootstrap, FormModel, template) {
 	'use strict';
 	
 	var FormView = Backbone.View.extend({
@@ -12,7 +12,7 @@ define([
 
 		model: new FormModel(),
 
-		template: _.template(formTemplate),
+		template: _.template(template),
 
 		initialize: function () {
 			this.render();
