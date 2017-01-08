@@ -1,5 +1,3 @@
-//srm: moving story collection up
-
 define([
 	'backbone',
 	'collections/story-collection',
@@ -11,11 +9,11 @@ define([
 
 	var ResultsView = Backbone.View.extend({
 		el: '#blah',
-		collection: new StoryCollection(),
+		//collection: new StoryCollection(),
 		template: _.template(template),
 
 		initialize: function () {
-
+			console.log('resultsView: ', this.collection);
 			this.render();
 		},
 
@@ -30,22 +28,11 @@ define([
 				date: '2016-01-04'
 			});
 
-			var fakeStory2 = new NewsStoryModel({
-				id: 101,
-				title: 'Puppies',
-				url: 'http://www.netflix.com',
-				date: '2016-01-03'
-			});
-
-			var fakeStory3 = new NewsStoryModel({
-				id: 102,
-				title: 'Other Cuteness',
-				url: 'http://www.hulu.com',
-				date: '2016-01-02'
-			});
+			this.collection.add(fakeStory);
+			console.log('after adding the story in results view...', this.collection);
 
 
-			var stories = new StoryCollection([fakeStory, fakeStory2, fakeStory3]);
+			var stories = new StoryCollection([fakeStory]);
 
 			
 			var indivResult = new IndivResult({

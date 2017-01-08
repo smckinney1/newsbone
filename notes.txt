@@ -1,4 +1,4 @@
-Google Require.js fallbacks
-Serve folder in node express.js
+NewsStoryModel: Finish parsing API data to assign correct values to the model's attributes
+ResultsView & FormModel: still contain test data
 
---flesh out all views again
+Display API results on the page

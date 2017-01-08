@@ -2,8 +2,9 @@ define([
 	'backbone',
 	'bootstrap',
 	'models/form-model',
+	'models/newsstory-model',
 	'text!templates/form-template.html'
-], function (Backbone, bootstrap, FormModel, template) {
+], function (Backbone, bootstrap, FormModel, NewsStoryModel, template) {
 	'use strict';
 	
 	var FormView = Backbone.View.extend({
@@ -20,7 +21,16 @@ define([
 
 		events: {
 			'keyup #search-area input': function (e) {
-				this.model.set({searchTopic: $(e.target).val()});
+				var topic = $(e.target).val();
+				this.model.set({searchTopic: topic});
+
+				//code below will change, this is to practice setting title of NewsStoryModel & add to collection
+				if(e.which === 13) {
+					var newsstory = new NewsStoryModel();
+					newsstory.set({title: topic});
+					this.collection.add(newsstory);
+					this.collection.getStories(topic);			//building this function in the collection
+				}
 			},
 			'change #from-date': function (e) {
 				this.model.setDateFrom($(e.target).val());												//function exists within the model; business logic done in model
@@ -31,6 +41,7 @@ define([
 			'change #order-by': function (e) {
 				this.model.set({orderBy: $(e.target).val()});
 			}
+
 
 		},
 

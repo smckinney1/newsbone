@@ -39,11 +39,23 @@ require.config({
 
 require([
 	'views/nav-view',
+	'collections/story-collection',
 	'views/form-view',
 	'views/results-view',
 	'backbone'
-], function (NavView, FormView, ResultsView, Backbone) {
+], function (NavView, StoryCollection, FormView, ResultsView, Backbone) {
 	new NavView();	
-	new FormView();
-	new ResultsView();
+	//new ResultsView();
+
+	//give multiple views access to the collection
+	var storyCollection = new StoryCollection();
+
+	//change the FormView class to allow each instance to have this collection
+	var formView = new FormView({
+		collection: storyCollection
+	});
+
+	var resultsView = new ResultsView({
+		collection: storyCollection
+	});
 });
