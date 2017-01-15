@@ -9,11 +9,12 @@ define([
 
 	var ResultsView = Backbone.View.extend({
 		el: '#blah',
-		//collection: new StoryCollection(),
 		template: _.template(template),
 
+
 		initialize: function () {
-			console.log('resultsView: ', this.collection);
+			//whenever there's a story added to the collection, display the story
+			this.listenTo(this.collection, 'add', this.displayStory);
 			this.render();
 		},
 
@@ -21,36 +22,20 @@ define([
 			var self = this;
 			self.$el.html(this.template({}));
 
-			var fakeStory = new NewsStoryModel({
-				id: 100,
-				title: 'Kittens',
-				url: 'http://www.youtube.com/',
-				date: '2016-01-04'
-			});
-
-			this.collection.add(fakeStory);
-			console.log('after adding the story in results view...', this.collection);
-
-
-			var stories = new StoryCollection([fakeStory]);
-
-			
-			var indivResult = new IndivResult({
-				model: fakeStory
-			});
-
-			stories.each(function(story) {
-
-				var indivResult = new IndivResult({
-					model: story
-				});
-
-				self.$el.append(indivResult.el);
-				
-			});
-
 			return self;
+		},
+
+
+		//model, collection are passed in by the nature of the listenTo function above. We only need the model.
+		displayStory: function (story) {
+
+			var indivResult = new IndivResult({
+				model: story
+			});
+
+			this.$el.append(indivResult.el);
 		}
+
 	});
 
 	return ResultsView;

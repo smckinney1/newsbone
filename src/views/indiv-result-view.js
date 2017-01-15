@@ -13,6 +13,7 @@ define([
 
 		render: function () {
 			this.$el.html(this.model.get('title'));
+			//console.log(this.model);
 		}
 
 	});

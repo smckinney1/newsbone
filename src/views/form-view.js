@@ -25,10 +25,7 @@ define([
 				this.model.set({searchTopic: topic});
 
 				//code below will change, this is to practice setting title of NewsStoryModel & add to collection
-				if(e.which === 13) {
-					var newsstory = new NewsStoryModel();
-					newsstory.set({title: topic});
-					this.collection.add(newsstory);
+				if (e.which === 13) {
 					this.collection.getStories(topic);			//building this function in the collection
 				}
 			},
