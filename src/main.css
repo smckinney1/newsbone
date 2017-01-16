@@ -76,7 +76,7 @@ label {
 	border-radius: 10px;
 }
 
-.container, .news-results {
+.container, #news-results {
 	margin-top: 15px;
 }
 
@@ -99,12 +99,12 @@ label {
 	border-radius: 20px;
 }
 
-.news-results {
+#news-results {
   padding-left: 0;
   margin-bottom: 20px;
 }
 
-.news-results div, .favorites div {
+#news-results div, .favorites div {
   position: relative;
   display: block;
   padding: 10px 15px;

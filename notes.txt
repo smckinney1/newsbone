@@ -1,15 +1,24 @@
-NewsStoryModel: Finish parsing API data to assign correct values to the model's attributes
-ResultsView & FormModel: still contain test data
+Now:
 
-Display API results on the page
-
+Create new Individual Results Model, to be used in the NewsStoryModel and in the Individual Results view. Thus, we can associate click logic with the heart in the view.
 
 
-(1) View: this.listenTo(Collection, 'event', callback)
+var IndivResultsModel = .... {
+	defaults: {
+		selected: false
+	}
+
+	addToFavorites: function () {
+		this.set({selected: true});
+		...get the story from the model
+		...add to favorites collection
+	}
+}
 
 
+Later:
 
-
-
-
-***Need to introduce pagination eventaully.
+***Pagination
+***Form validation
+***Favorites page
+***jQuery UI
